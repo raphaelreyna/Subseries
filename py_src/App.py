@@ -19,7 +19,10 @@ class App:
         args = self.parser.parse_args(sys.argv[1:])
         self.func = Function(args.function)
         self.renderer = Renderer()
-        points = self.func.expand_eval(complex(args.z0), int(args.degree), complex(args.a))
+        self.func.expand_eval(complex(args.z0), complex(args.a))
+        points = []
+        for i in range(0, int(args.degree)):
+            points.append(self.func.next_term())
         self.renderer.addPoints(points)
         filename = 'spectralEval'+args.function+'.png'
         self.renderer.image.save('output.png','PNG')

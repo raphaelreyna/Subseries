@@ -15,8 +15,8 @@ class Renderer:
         self.iterations = 0
         self.point_count = 2**self.k
         self.anchor_path = os.path.abspath(os.path.dirname(__file__))
-        self.f = Function('exp(z)')
-        self.f.expand_eval(0, 1+1.5j)
+        self.f = Function('1/(1-z)')
+        self.f.expand_eval(0, 0.5+0.5j)
         self.setupGlut()
         self.sd = SharedDevice(self.vbo, self.k)
         self.compute()

@@ -4,6 +4,7 @@ This class handles displaying the generated data.
 from PIL import Image, ImageDraw
 from itertools import starmap
 from functools import reduce
+import json
 
 class Renderer:
     def __init__(self, points = None, size = (500,500), bg = (255,255,255,255)):
